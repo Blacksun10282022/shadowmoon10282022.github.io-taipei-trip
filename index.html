@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_744f8a89d3ffcc97ecf3b985839286bc {
+                #map_97f8df59a031cb3fea297958123436cc {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -54,7 +54,7 @@
 <body>
     
     
-            <div class="folium-map" id="map_744f8a89d3ffcc97ecf3b985839286bc" ></div>
+            <div class="folium-map" id="map_97f8df59a031cb3fea297958123436cc" ></div>
         
     
 <style>
@@ -145,12 +145,42 @@
   <div><span style="display:inline-block;width:18px;height:3px;background:#8E44AD;margin-right:6px;vertical-align:middle"></span>D5 10/04</div>
 </div>
 </div>
+    
+<style>
+.ck { position: fixed; right: 12px; top: 92px; z-index: 9999;
+      background: rgba(255,255,255,0.98); padding:10px 12px; border-radius:12px;
+      box-shadow:0 8px 24px rgba(0,0,0,.18); width:280px; }
+.ck-title { font-weight:600; }
+.ck-progress { margin-top:10px; height:12px; background:#f1f5f9; border-radius:999px; overflow:hidden; }
+#ck-bar { height:100%; width:0%; background:linear-gradient(90deg,#34d399,#10b981);
+          color:#fff; font-size:12px; line-height:12px; text-align:center; transition: width .45s ease; }
+.ck-row { display:flex; gap:8px; align-items:center; justify-content:space-between; margin-top:8px; }
+.ck-btn { padding:6px 10px; border-radius:8px; border:1px solid #e5e7eb; background:#f8fafc; cursor:pointer; }
+.ck-btn.danger { border-color:#ef4444; color:#ef4444; background:#fff; }
+.ck-hint { margin-top:6px; font-size:12px; color:#666; }
+.ck-badge { font-size:12px; padding:2px 8px; border-radius:999px; background:#e5e7eb; }
+.ck-badge.ok { background:#dcfce7; }
+.ck-badge.warn { background:#fde68a; }
+.ck-btn.done { background:#10b981; color:#fff; border-color:#10b981; }
+</style>
+<!-- 纸炮动画 -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<div id="ck-panel" class="ck" aria-label="打卡">
+  <div class="ck-title">打卡 · 团队共享</div>
+  <div class="ck-progress"><div id="ck-bar">0%</div></div>
+  <div class="ck-row">
+    <button id="ck-reset" class="ck-btn danger">重置打卡</button>
+    <span id="ck-status" class="ck-badge">初始化…</span>
+  </div>
+  <div class="ck-hint">打开景点弹窗，点击「打卡✓」。任意人打卡，团队实时同步。</div>
+</div>
 </body>
 <script>
     
     
-            var map_744f8a89d3ffcc97ecf3b985839286bc = L.map(
-                "map_744f8a89d3ffcc97ecf3b985839286bc",
+            var map_97f8df59a031cb3fea297958123436cc = L.map(
+                "map_97f8df59a031cb3fea297958123436cc",
                 {
                     center: [25.046, 121.517],
                     crs: L.CRS.EPSG3857,
@@ -162,13 +192,13 @@
 
                 }
             );
-            L.control.scale().addTo(map_744f8a89d3ffcc97ecf3b985839286bc);
+            L.control.scale().addTo(map_97f8df59a031cb3fea297958123436cc);
 
             
 
         
     
-            var tile_layer_0cd3142d0e7416bc4d781fdcafe5892b = L.tileLayer(
+            var tile_layer_deee10f01863b360e9a3a3fd5f6f916d = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -185,10 +215,10 @@
             );
         
     
-            tile_layer_0cd3142d0e7416bc4d781fdcafe5892b.addTo(map_744f8a89d3ffcc97ecf3b985839286bc);
+            tile_layer_deee10f01863b360e9a3a3fd5f6f916d.addTo(map_97f8df59a031cb3fea297958123436cc);
         
     
-            var tile_layer_fce79877a770de08bf4244ca376af0b1 = L.tileLayer(
+            var tile_layer_63138d2fa21a97d3b6f6a3afa19c446f = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -205,7 +235,7 @@
             );
         
     
-            var tile_layer_210a36bff7d8a772faf8a2fe82d9899d = L.tileLayer(
+            var tile_layer_34a30085ecc04c5a8c5daaaf959505ac = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -222,21 +252,21 @@
             );
         
     
-            var feature_group_76f5b1a26a86c4efa49639d718d67dd7 = L.featureGroup(
+            var feature_group_40fa09e62fa922e4c549e27978b7ce5f = L.featureGroup(
                 {
 }
             );
         
     
-            var marker_61e152f4ec802add15c87b11a5cf9f9e = L.marker(
+            var marker_a9ad6804e87cd0eb75f88856539835e7 = L.marker(
                 [25.0432, 121.5075],
                 {
   "title": "\u5728\u5bb6\u884c\u65c5 \u897f\u95e8\u9986",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_d41e3698880b33961e2d9feca712016f = L.AwesomeMarkers.icon(
+            var icon_687f948f7bac3666b2a448ca4d0ed009 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "black",
   "iconColor": "white",
@@ -247,24 +277,24 @@
             );
         
     
-        var popup_e5528bded08e25e2e65eb9fdf3f7a20a = L.popup({
+        var popup_ffa1751633683e371a22a143d7e13ea1 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_e579377a74b3db27e4b5423bb4c47734 = $(`<div id="html_e579377a74b3db27e4b5423bb4c47734" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">在家行旅 西门馆</div>   <div style="font-size:13px;line-height:1.5;color:#374151">住处｜默认每日行程起点</div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0432,121.5075" target="_blank">在地图中导航</a></div> </div></div>`)[0];
-                popup_e5528bded08e25e2e65eb9fdf3f7a20a.setContent(html_e579377a74b3db27e4b5423bb4c47734);
+                var html_527128e7d9a450d63234089cd15635ce = $(`<div id="html_527128e7d9a450d63234089cd15635ce" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">在家行旅 西门馆</div>   <div style="font-size:13px;line-height:1.5;color:#374151">住处｜默认每日行程起点</div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0432,121.5075" target="_blank">在地图中导航</a></div> </div></div>`)[0];
+                popup_ffa1751633683e371a22a143d7e13ea1.setContent(html_527128e7d9a450d63234089cd15635ce);
             
         
 
-        marker_61e152f4ec802add15c87b11a5cf9f9e.bindPopup(popup_e5528bded08e25e2e65eb9fdf3f7a20a)
+        marker_a9ad6804e87cd0eb75f88856539835e7.bindPopup(popup_ffa1751633683e371a22a143d7e13ea1)
         ;
 
         
     
     
-            marker_61e152f4ec802add15c87b11a5cf9f9e.bindTooltip(
+            marker_a9ad6804e87cd0eb75f88856539835e7.bindTooltip(
                 `<div>
                      在家行旅 西门馆
                  </div>`,
@@ -274,18 +304,18 @@
             );
         
     
-                marker_61e152f4ec802add15c87b11a5cf9f9e.setIcon(icon_d41e3698880b33961e2d9feca712016f);
+                marker_a9ad6804e87cd0eb75f88856539835e7.setIcon(icon_687f948f7bac3666b2a448ca4d0ed009);
             
     
-            var marker_fd1b2e2cc592c4706cfa3502fa7e23e5 = L.marker(
+            var marker_ec430cd458e9d9644be92fe92a381a93 = L.marker(
                 [25.0375, 121.499],
                 {
   "title": "\u9f99\u5c71\u5bfa Longshan Temple",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_a79712a26e88bd4e555ed9972d64608f = L.AwesomeMarkers.icon(
+            var icon_647fd152a9384fc52197318a965a8370 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -296,24 +326,24 @@
             );
         
     
-        var popup_142b03d475e949488dc7bca3361481a3 = L.popup({
+        var popup_f53d80000e5b0722bc168185e42e93c2 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_cd5df23669b062e30316ceb181600031 = $(`<div id="html_cd5df23669b062e30316ceb181600031" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">龙山寺 Longshan Temple</div>   <div style="font-size:13px;line-height:1.5;color:#374151">06:00–22:00，时间宽松；可与剥皮寮连逛。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     下午(抵达后)｜09-30 15:00 ~ 17:30   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0375,121.499" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
-                popup_142b03d475e949488dc7bca3361481a3.setContent(html_cd5df23669b062e30316ceb181600031);
+                var html_f958719e26ede05f5fd53625f69b1501 = $(`<div id="html_f958719e26ede05f5fd53625f69b1501" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">龙山寺 Longshan Temple</div>   <div style="font-size:13px;line-height:1.5;color:#374151">06:00–22:00，时间宽松；可与剥皮寮连逛。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     下午(抵达后)｜09-30 15:00 ~ 17:30   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0375,121.499" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
+                popup_f53d80000e5b0722bc168185e42e93c2.setContent(html_f958719e26ede05f5fd53625f69b1501);
             
         
 
-        marker_fd1b2e2cc592c4706cfa3502fa7e23e5.bindPopup(popup_142b03d475e949488dc7bca3361481a3)
+        marker_ec430cd458e9d9644be92fe92a381a93.bindPopup(popup_f53d80000e5b0722bc168185e42e93c2)
         ;
 
         
     
     
-            marker_fd1b2e2cc592c4706cfa3502fa7e23e5.bindTooltip(
+            marker_ec430cd458e9d9644be92fe92a381a93.bindTooltip(
                 `<div>
                      龙山寺 Longshan Temple
                  </div>`,
@@ -323,18 +353,18 @@
             );
         
     
-                marker_fd1b2e2cc592c4706cfa3502fa7e23e5.setIcon(icon_a79712a26e88bd4e555ed9972d64608f);
+                marker_ec430cd458e9d9644be92fe92a381a93.setIcon(icon_647fd152a9384fc52197318a965a8370);
             
     
-            var marker_e35fc104ec9589164a943ff7fda5839f = L.marker(
+            var marker_0db7ffea4bbb8803d55424c1fc477aa3 = L.marker(
                 [25.037, 121.5001],
                 {
   "title": "\u5265\u76ae\u5bee\u5386\u53f2\u8857\u533a Bopiliao",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_72c45734a51c5908f447dd472f84bf80 = L.AwesomeMarkers.icon(
+            var icon_8f70450222ac86d5c4dde2a6dfa681a3 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -345,24 +375,24 @@
             );
         
     
-        var popup_9f19ca1482bec2f48fb4fb2cf07b51af = L.popup({
+        var popup_5d33c0f63c070438a442edd9a3aff892 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_01e6e82530965667c575089ddd94c567 = $(`<div id="html_01e6e82530965667c575089ddd94c567" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">剥皮寮历史街区 Bopiliao</div>   <div style="font-size:13px;line-height:1.5;color:#374151">建筑展间至 18:00；户外街区开放至 21:00。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     傍晚｜09-30 17:00 ~ 19:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.037,121.5001" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
-                popup_9f19ca1482bec2f48fb4fb2cf07b51af.setContent(html_01e6e82530965667c575089ddd94c567);
+                var html_4c371aa558b7a3516c22efa04b57f127 = $(`<div id="html_4c371aa558b7a3516c22efa04b57f127" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">剥皮寮历史街区 Bopiliao</div>   <div style="font-size:13px;line-height:1.5;color:#374151">建筑展间至 18:00；户外街区开放至 21:00。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     傍晚｜09-30 17:00 ~ 19:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.037,121.5001" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
+                popup_5d33c0f63c070438a442edd9a3aff892.setContent(html_4c371aa558b7a3516c22efa04b57f127);
             
         
 
-        marker_e35fc104ec9589164a943ff7fda5839f.bindPopup(popup_9f19ca1482bec2f48fb4fb2cf07b51af)
+        marker_0db7ffea4bbb8803d55424c1fc477aa3.bindPopup(popup_5d33c0f63c070438a442edd9a3aff892)
         ;
 
         
     
     
-            marker_e35fc104ec9589164a943ff7fda5839f.bindTooltip(
+            marker_0db7ffea4bbb8803d55424c1fc477aa3.bindTooltip(
                 `<div>
                      剥皮寮历史街区 Bopiliao
                  </div>`,
@@ -372,18 +402,18 @@
             );
         
     
-                marker_e35fc104ec9589164a943ff7fda5839f.setIcon(icon_72c45734a51c5908f447dd472f84bf80);
+                marker_0db7ffea4bbb8803d55424c1fc477aa3.setIcon(icon_8f70450222ac86d5c4dde2a6dfa681a3);
             
     
-            var marker_d9a92c7d29452e72fb85aa1572a438a6 = L.marker(
+            var marker_79e9d0b0e9e1e47dad7e8a404e82ddea = L.marker(
                 [25.0422, 121.5078],
                 {
   "title": "\u897f\u95e8\u7ea2\u697c Red House",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_fe4e38597f4225f00572c33619fc646e = L.AwesomeMarkers.icon(
+            var icon_bb42228c2078bcacf5868cbdc5c3c494 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -394,24 +424,24 @@
             );
         
     
-        var popup_390bbc769e59b7366c89aec6f769771d = L.popup({
+        var popup_e6c63fd321c762163142e1b55119717d = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_5ec5c203cec5bf1dd4ca6d1aba7a0efa = $(`<div id="html_5ec5c203cec5bf1dd4ca6d1aba7a0efa" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">西门红楼 Red House</div>   <div style="font-size:13px;line-height:1.5;color:#374151">八角红砖古迹，文创聚集地；晚间氛围佳。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     晚上｜09-30 19:00 ~ 21:30   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0422,121.5078" target="_blank">在地图中导航</a></div>   <div><a target='_blank' href='https://www.in89cinemax.com/index.aspx?TheaterId=3' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>in89 西门町影城官网</a></div> </div></div>`)[0];
-                popup_390bbc769e59b7366c89aec6f769771d.setContent(html_5ec5c203cec5bf1dd4ca6d1aba7a0efa);
+                var html_8d275e7149a5558d8d98f680f52dfa79 = $(`<div id="html_8d275e7149a5558d8d98f680f52dfa79" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">西门红楼 Red House</div>   <div style="font-size:13px;line-height:1.5;color:#374151">八角红砖古迹，文创聚集地；晚间氛围佳。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     晚上｜09-30 19:00 ~ 21:30   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0422,121.5078" target="_blank">在地图中导航</a></div>   <div><a target='_blank' href='https://www.in89cinemax.com/index.aspx?TheaterId=3' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>in89 西门町影城官网</a></div> </div></div>`)[0];
+                popup_e6c63fd321c762163142e1b55119717d.setContent(html_8d275e7149a5558d8d98f680f52dfa79);
             
         
 
-        marker_d9a92c7d29452e72fb85aa1572a438a6.bindPopup(popup_390bbc769e59b7366c89aec6f769771d)
+        marker_79e9d0b0e9e1e47dad7e8a404e82ddea.bindPopup(popup_e6c63fd321c762163142e1b55119717d)
         ;
 
         
     
     
-            marker_d9a92c7d29452e72fb85aa1572a438a6.bindTooltip(
+            marker_79e9d0b0e9e1e47dad7e8a404e82ddea.bindTooltip(
                 `<div>
                      西门红楼 Red House
                  </div>`,
@@ -421,18 +451,18 @@
             );
         
     
-                marker_d9a92c7d29452e72fb85aa1572a438a6.setIcon(icon_fe4e38597f4225f00572c33619fc646e);
+                marker_79e9d0b0e9e1e47dad7e8a404e82ddea.setIcon(icon_bb42228c2078bcacf5868cbdc5c3c494);
             
     
-            var marker_d09187cdad4b169605cce7cb6a0d4051 = L.marker(
+            var marker_32bf656b739d0d75a01313c82079121f = L.marker(
                 [25.056, 121.5156],
                 {
   "title": "\u5b81\u590f\u591c\u5e02 Ningxia Night Market",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_eb41f986ad5cd61e855460fcaaefdd36 = L.AwesomeMarkers.icon(
+            var icon_5fff9562397a4195e319677c86aceddc = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -443,24 +473,24 @@
             );
         
     
-        var popup_eb3bfdb4e41807b3dc138337ede4bfab = L.popup({
+        var popup_55ee79ea820e34b3a602ff88fc1bb3bb = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_3130a6ad65951fc067bfb5da247332d6 = $(`<div id="html_3130a6ad65951fc067bfb5da247332d6" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">宁夏夜市 Ningxia Night Market</div>   <div style="font-size:13px;line-height:1.5;color:#374151">约 17:00 起热闹至午夜，适合夜宵。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     夜宵｜09-30 21:30 ~ 23:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.056,121.5156" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
-                popup_eb3bfdb4e41807b3dc138337ede4bfab.setContent(html_3130a6ad65951fc067bfb5da247332d6);
+                var html_6c9ae80d885a875572b8639adaddfe1a = $(`<div id="html_6c9ae80d885a875572b8639adaddfe1a" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">宁夏夜市 Ningxia Night Market</div>   <div style="font-size:13px;line-height:1.5;color:#374151">约 17:00 起热闹至午夜，适合夜宵。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     夜宵｜09-30 21:30 ~ 23:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.056,121.5156" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
+                popup_55ee79ea820e34b3a602ff88fc1bb3bb.setContent(html_6c9ae80d885a875572b8639adaddfe1a);
             
         
 
-        marker_d09187cdad4b169605cce7cb6a0d4051.bindPopup(popup_eb3bfdb4e41807b3dc138337ede4bfab)
+        marker_32bf656b739d0d75a01313c82079121f.bindPopup(popup_55ee79ea820e34b3a602ff88fc1bb3bb)
         ;
 
         
     
     
-            marker_d09187cdad4b169605cce7cb6a0d4051.bindTooltip(
+            marker_32bf656b739d0d75a01313c82079121f.bindTooltip(
                 `<div>
                      宁夏夜市 Ningxia Night Market
                  </div>`,
@@ -470,18 +500,18 @@
             );
         
     
-                marker_d09187cdad4b169605cce7cb6a0d4051.setIcon(icon_eb41f986ad5cd61e855460fcaaefdd36);
+                marker_32bf656b739d0d75a01313c82079121f.setIcon(icon_5fff9562397a4195e319677c86aceddc);
             
     
-            var marker_34ac36beb50a2267b0d4a89c96ecad5e = L.marker(
+            var marker_3b5508edc2f27ca0bbe01590d64a7a74 = L.marker(
                 [25.0401, 121.5115],
                 {
   "title": "\u603b\u7edf\u5e9c\uff08\u5165\u5185\u53c2\u89c2\uff09 Presidential Office Building",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_265f117a16edf0309fd763eeda6b06cb = L.AwesomeMarkers.icon(
+            var icon_8e2f4f760a35f69fac182c8cf0d05b7b = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -492,24 +522,24 @@
             );
         
     
-        var popup_9be34561de2535f2a8ff3e2cdccbb75a = L.popup({
+        var popup_963510f8c7d58c226e4cfba371231431 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_2c9c01f8ad24698fc992be505a374591 = $(`<div id="html_2c9c01f8ad24698fc992be505a374591" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">总统府（入内参观） Presidential Office Building</div>   <div style="font-size:13px;line-height:1.5;color:#374151">周一至周五 09:00–12:00（11:30 止入）；入内需安检，携带护照或带照片证件，大件行李勿带，可借语音导览（押证件）。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     上午｜10-01 09:00 ~ 12:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0401,121.5115" target="_blank">在地图中导航</a></div>   <div><a target='_blank' href='https://www.president.gov.tw/Page/124' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>官网（中文）</a><a target='_blank' href='https://english.president.gov.tw/Page/124' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>Official (EN)</a></div> </div></div>`)[0];
-                popup_9be34561de2535f2a8ff3e2cdccbb75a.setContent(html_2c9c01f8ad24698fc992be505a374591);
+                var html_cb4e4904ec89863b7918e6747d625505 = $(`<div id="html_cb4e4904ec89863b7918e6747d625505" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">总统府（入内参观） Presidential Office Building</div>   <div style="font-size:13px;line-height:1.5;color:#374151">周一至周五 09:00–12:00（11:30 止入）；入内需安检，携带护照或带照片证件，大件行李勿带，可借语音导览（押证件）。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     上午｜10-01 09:00 ~ 12:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0401,121.5115" target="_blank">在地图中导航</a></div>   <div><a target='_blank' href='https://www.president.gov.tw/Page/124' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>官网（中文）</a><a target='_blank' href='https://english.president.gov.tw/Page/124' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>Official (EN)</a></div> </div></div>`)[0];
+                popup_963510f8c7d58c226e4cfba371231431.setContent(html_cb4e4904ec89863b7918e6747d625505);
             
         
 
-        marker_34ac36beb50a2267b0d4a89c96ecad5e.bindPopup(popup_9be34561de2535f2a8ff3e2cdccbb75a)
+        marker_3b5508edc2f27ca0bbe01590d64a7a74.bindPopup(popup_963510f8c7d58c226e4cfba371231431)
         ;
 
         
     
     
-            marker_34ac36beb50a2267b0d4a89c96ecad5e.bindTooltip(
+            marker_3b5508edc2f27ca0bbe01590d64a7a74.bindTooltip(
                 `<div>
                      总统府（入内参观） Presidential Office Building
                  </div>`,
@@ -519,18 +549,18 @@
             );
         
     
-                marker_34ac36beb50a2267b0d4a89c96ecad5e.setIcon(icon_265f117a16edf0309fd763eeda6b06cb);
+                marker_3b5508edc2f27ca0bbe01590d64a7a74.setIcon(icon_8e2f4f760a35f69fac182c8cf0d05b7b);
             
     
-            var marker_49d4f228acdb3c8b34ef71cccfe9cfc0 = L.marker(
+            var marker_3edbc81b3a6c6d6b51693e1743b8af9b = L.marker(
                 [25.1024, 121.5485],
                 {
   "title": "\u56fd\u7acb\u6545\u5bab\u535a\u7269\u9662 National Palace Museum",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_4daa0e57f58b516fee52c0aaf0276c3d = L.AwesomeMarkers.icon(
+            var icon_94a7f32ad1880524532f7058f85d4c41 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -541,24 +571,24 @@
             );
         
     
-        var popup_c9556432eeefc669e3e19d0531c4c0cd = L.popup({
+        var popup_65eaf3f30b6cafa2fe1dc02f7faa1658 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_7e8c4aadf2d2666722b26c54e6524612 = $(`<div id="html_7e8c4aadf2d2666722b26c54e6524612" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">国立故宫博物院 National Palace Museum</div>   <div style="font-size:13px;line-height:1.5;color:#374151">09:00–17:00，建议预留 2.5–3 小时参观。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     下午｜10-01 13:30 ~ 17:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.1024,121.5485" target="_blank">在地图中导航</a></div>   <div><a target='_blank' href='https://www.npm.gov.tw/' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>官网（中文）</a><a target='_blank' href='https://www.npm.gov.tw/?l=2&lang=en' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>Official (EN)</a></div> </div></div>`)[0];
-                popup_c9556432eeefc669e3e19d0531c4c0cd.setContent(html_7e8c4aadf2d2666722b26c54e6524612);
+                var html_d7ee850a26dd4be4c43f5505601f2a72 = $(`<div id="html_d7ee850a26dd4be4c43f5505601f2a72" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">国立故宫博物院 National Palace Museum</div>   <div style="font-size:13px;line-height:1.5;color:#374151">09:00–17:00，建议预留 2.5–3 小时参观。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     下午｜10-01 13:30 ~ 17:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.1024,121.5485" target="_blank">在地图中导航</a></div>   <div><a target='_blank' href='https://www.npm.gov.tw/' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>官网（中文）</a><a target='_blank' href='https://www.npm.gov.tw/?l=2&lang=en' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>Official (EN)</a></div> </div></div>`)[0];
+                popup_65eaf3f30b6cafa2fe1dc02f7faa1658.setContent(html_d7ee850a26dd4be4c43f5505601f2a72);
             
         
 
-        marker_49d4f228acdb3c8b34ef71cccfe9cfc0.bindPopup(popup_c9556432eeefc669e3e19d0531c4c0cd)
+        marker_3edbc81b3a6c6d6b51693e1743b8af9b.bindPopup(popup_65eaf3f30b6cafa2fe1dc02f7faa1658)
         ;
 
         
     
     
-            marker_49d4f228acdb3c8b34ef71cccfe9cfc0.bindTooltip(
+            marker_3edbc81b3a6c6d6b51693e1743b8af9b.bindTooltip(
                 `<div>
                      国立故宫博物院 National Palace Museum
                  </div>`,
@@ -568,18 +598,18 @@
             );
         
     
-                marker_49d4f228acdb3c8b34ef71cccfe9cfc0.setIcon(icon_4daa0e57f58b516fee52c0aaf0276c3d);
+                marker_3edbc81b3a6c6d6b51693e1743b8af9b.setIcon(icon_94a7f32ad1880524532f7058f85d4c41);
             
     
-            var marker_e01a86001dcedbd628d9a273660d47b8 = L.marker(
+            var marker_fc696f8be992419ce7c1a1b8cc398f48 = L.marker(
                 [25.0877, 121.525],
                 {
   "title": "\u58eb\u6797\u591c\u5e02 Shilin Night Market",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_0a418fb71d5ffe7db1ca221f255cdec9 = L.AwesomeMarkers.icon(
+            var icon_9ee2638966a00f8d886e1429a1e72a87 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -590,24 +620,24 @@
             );
         
     
-        var popup_85b090bcd4d4ede72a25d4f9ff89c6c2 = L.popup({
+        var popup_4b78458df4869a57ade0dea825c34560 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_284d2da9f7cf8406f36e143c25f6fb6d = $(`<div id="html_284d2da9f7cf8406f36e143c25f6fb6d" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">士林夜市 Shilin Night Market</div>   <div style="font-size:13px;line-height:1.5;color:#374151">17:00 起陆续营业至深夜，摊位集中。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     晚上｜10-01 19:00 ~ 21:30   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0877,121.525" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
-                popup_85b090bcd4d4ede72a25d4f9ff89c6c2.setContent(html_284d2da9f7cf8406f36e143c25f6fb6d);
+                var html_ab2a5fdd0ab7e04fbe5bf8e765e166b4 = $(`<div id="html_ab2a5fdd0ab7e04fbe5bf8e765e166b4" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">士林夜市 Shilin Night Market</div>   <div style="font-size:13px;line-height:1.5;color:#374151">17:00 起陆续营业至深夜，摊位集中。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     晚上｜10-01 19:00 ~ 21:30   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0877,121.525" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
+                popup_4b78458df4869a57ade0dea825c34560.setContent(html_ab2a5fdd0ab7e04fbe5bf8e765e166b4);
             
         
 
-        marker_e01a86001dcedbd628d9a273660d47b8.bindPopup(popup_85b090bcd4d4ede72a25d4f9ff89c6c2)
+        marker_fc696f8be992419ce7c1a1b8cc398f48.bindPopup(popup_4b78458df4869a57ade0dea825c34560)
         ;
 
         
     
     
-            marker_e01a86001dcedbd628d9a273660d47b8.bindTooltip(
+            marker_fc696f8be992419ce7c1a1b8cc398f48.bindTooltip(
                 `<div>
                      士林夜市 Shilin Night Market
                  </div>`,
@@ -617,18 +647,18 @@
             );
         
     
-                marker_e01a86001dcedbd628d9a273660d47b8.setIcon(icon_0a418fb71d5ffe7db1ca221f255cdec9);
+                marker_fc696f8be992419ce7c1a1b8cc398f48.setIcon(icon_9ee2638966a00f8d886e1429a1e72a87);
             
     
-            var marker_02ef9758b86f751c2b26bc9bf22353f3 = L.marker(
+            var marker_ace3006b5650c026b967559144ac5005 = L.marker(
                 [25.0446, 121.56],
                 {
   "title": "\u677e\u5c71\u6587\u521b\u56ed\u533a Songshan Cultural \u0026 Creative Park",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_d2a717ec6337986da90d576929fc2bb8 = L.AwesomeMarkers.icon(
+            var icon_71f3ae0dd71fd2411a44b4b942cbfa31 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -639,24 +669,24 @@
             );
         
     
-        var popup_b39d1fda83d0a3d55b7300805d3d4f6e = L.popup({
+        var popup_bd08b75741eed5e0791f7045a623e1fb = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_b9e1ca61a29deb0589081026164f103f = $(`<div id="html_b9e1ca61a29deb0589081026164f103f" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">松山文创园区 Songshan Cultural & Creative Park</div>   <div style="font-size:13px;line-height:1.5;color:#374151">园区全天开放，展馆多为 09:00–18:00。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     上午｜10-02 09:00 ~ 12:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0446,121.56" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
-                popup_b39d1fda83d0a3d55b7300805d3d4f6e.setContent(html_b9e1ca61a29deb0589081026164f103f);
+                var html_9da8e99b498112b7de93f3716fb43e0e = $(`<div id="html_9da8e99b498112b7de93f3716fb43e0e" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">松山文创园区 Songshan Cultural & Creative Park</div>   <div style="font-size:13px;line-height:1.5;color:#374151">园区全天开放，展馆多为 09:00–18:00。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     上午｜10-02 09:00 ~ 12:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0446,121.56" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
+                popup_bd08b75741eed5e0791f7045a623e1fb.setContent(html_9da8e99b498112b7de93f3716fb43e0e);
             
         
 
-        marker_02ef9758b86f751c2b26bc9bf22353f3.bindPopup(popup_b39d1fda83d0a3d55b7300805d3d4f6e)
+        marker_ace3006b5650c026b967559144ac5005.bindPopup(popup_bd08b75741eed5e0791f7045a623e1fb)
         ;
 
         
     
     
-            marker_02ef9758b86f751c2b26bc9bf22353f3.bindTooltip(
+            marker_ace3006b5650c026b967559144ac5005.bindTooltip(
                 `<div>
                      松山文创园区 Songshan Cultural & Creative Park
                  </div>`,
@@ -666,18 +696,18 @@
             );
         
     
-                marker_02ef9758b86f751c2b26bc9bf22353f3.setIcon(icon_d2a717ec6337986da90d576929fc2bb8);
+                marker_ace3006b5650c026b967559144ac5005.setIcon(icon_71f3ae0dd71fd2411a44b4b942cbfa31);
             
     
-            var marker_93731fb8cc77c0d3756de11e93f2c753 = L.marker(
+            var marker_c0eed484e66cb3fddca4ac166c8346c9 = L.marker(
                 [25.0418, 121.5574],
                 {
   "title": "\u56fd\u7236\u7eaa\u5ff5\u9986 Sun Yat-sen Memorial Hall (park)",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_ec900e1c4b85822f4b686cca40934707 = L.AwesomeMarkers.icon(
+            var icon_ab2a6c28d3efc60d30ce413265aa7b5b = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -688,24 +718,24 @@
             );
         
     
-        var popup_8c8437d928a146f264b03b8c781bb191 = L.popup({
+        var popup_a9fdc1dfd12a62eee5e4d5026757e1df = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_5851db5133b843ff0f141336185b562c = $(`<div id="html_5851db5133b843ff0f141336185b562c" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">国父纪念馆 Sun Yat-sen Memorial Hall (park)</div>   <div style="font-size:13px;line-height:1.5;color:#374151">主馆整修闭馆，周边公园可拍 101 天际线。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     下午｜10-02 13:30 ~ 17:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0418,121.5574" target="_blank">在地图中导航</a></div>   <div><a target='_blank' href='https://www.vscinemas.com.tw/' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>威秀官网</a><a target='_blank' href='https://www.vscinemas.com.tw/ShowTimes/' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>场次/订票</a></div> </div></div>`)[0];
-                popup_8c8437d928a146f264b03b8c781bb191.setContent(html_5851db5133b843ff0f141336185b562c);
+                var html_77604953703c11fd271839eda5934b2d = $(`<div id="html_77604953703c11fd271839eda5934b2d" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">国父纪念馆 Sun Yat-sen Memorial Hall (park)</div>   <div style="font-size:13px;line-height:1.5;color:#374151">主馆整修闭馆，周边公园可拍 101 天际线。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     下午｜10-02 13:30 ~ 17:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0418,121.5574" target="_blank">在地图中导航</a></div>   <div><a target='_blank' href='https://www.vscinemas.com.tw/' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>威秀官网</a><a target='_blank' href='https://www.vscinemas.com.tw/ShowTimes/' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>场次/订票</a></div> </div></div>`)[0];
+                popup_a9fdc1dfd12a62eee5e4d5026757e1df.setContent(html_77604953703c11fd271839eda5934b2d);
             
         
 
-        marker_93731fb8cc77c0d3756de11e93f2c753.bindPopup(popup_8c8437d928a146f264b03b8c781bb191)
+        marker_c0eed484e66cb3fddca4ac166c8346c9.bindPopup(popup_a9fdc1dfd12a62eee5e4d5026757e1df)
         ;
 
         
     
     
-            marker_93731fb8cc77c0d3756de11e93f2c753.bindTooltip(
+            marker_c0eed484e66cb3fddca4ac166c8346c9.bindTooltip(
                 `<div>
                      国父纪念馆 Sun Yat-sen Memorial Hall (park)
                  </div>`,
@@ -715,18 +745,18 @@
             );
         
     
-                marker_93731fb8cc77c0d3756de11e93f2c753.setIcon(icon_ec900e1c4b85822f4b686cca40934707);
+                marker_c0eed484e66cb3fddca4ac166c8346c9.setIcon(icon_ab2a6c28d3efc60d30ce413265aa7b5b);
             
     
-            var marker_739bb6689b20c853d8e578c0f20d3bbe = L.marker(
+            var marker_81bd10fbc99e7605f986eb1b9073dbb7 = L.marker(
                 [25.0272, 121.5707],
                 {
   "title": "\u8c61\u5c71\u6b65\u9053 Elephant Mountain Trailhead",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_f575b95517e90271e80ff8ae579c29da = L.AwesomeMarkers.icon(
+            var icon_cea508144becab05f5fd17e3c3bb9c16 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -737,24 +767,24 @@
             );
         
     
-        var popup_969aded398f9a71fff10b3163cfeec48 = L.popup({
+        var popup_6d31a4aa9596b7788e838c1eb11e855e = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_4d316e87845f72415b74d584506fd026 = $(`<div id="html_4d316e87845f72415b74d584506fd026" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">象山步道 Elephant Mountain Trailhead</div>   <div style="font-size:13px;line-height:1.5;color:#374151">单程约 15–25 分；日落/蓝调拍 101 极佳。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     傍晚｜10-02 17:00 ~ 19:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0272,121.5707" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
-                popup_969aded398f9a71fff10b3163cfeec48.setContent(html_4d316e87845f72415b74d584506fd026);
+                var html_b048e609c536ab4d0681e682cc213783 = $(`<div id="html_b048e609c536ab4d0681e682cc213783" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">象山步道 Elephant Mountain Trailhead</div>   <div style="font-size:13px;line-height:1.5;color:#374151">单程约 15–25 分；日落/蓝调拍 101 极佳。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     傍晚｜10-02 17:00 ~ 19:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0272,121.5707" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
+                popup_6d31a4aa9596b7788e838c1eb11e855e.setContent(html_b048e609c536ab4d0681e682cc213783);
             
         
 
-        marker_739bb6689b20c853d8e578c0f20d3bbe.bindPopup(popup_969aded398f9a71fff10b3163cfeec48)
+        marker_81bd10fbc99e7605f986eb1b9073dbb7.bindPopup(popup_6d31a4aa9596b7788e838c1eb11e855e)
         ;
 
         
     
     
-            marker_739bb6689b20c853d8e578c0f20d3bbe.bindTooltip(
+            marker_81bd10fbc99e7605f986eb1b9073dbb7.bindTooltip(
                 `<div>
                      象山步道 Elephant Mountain Trailhead
                  </div>`,
@@ -764,18 +794,18 @@
             );
         
     
-                marker_739bb6689b20c853d8e578c0f20d3bbe.setIcon(icon_f575b95517e90271e80ff8ae579c29da);
+                marker_81bd10fbc99e7605f986eb1b9073dbb7.setIcon(icon_cea508144becab05f5fd17e3c3bb9c16);
             
     
-            var marker_0a919e83e495d004efa4fc3739c3551c = L.marker(
+            var marker_0c1ce14d43315668d0a2a45a21e5df0b = L.marker(
                 [25.0335, 121.5645],
                 {
   "title": "\u53f0\u5317101\u89c2\u666f\u53f0 Taipei 101 Observatory",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_ac833012b42bd58182a8076c4effb2b2 = L.AwesomeMarkers.icon(
+            var icon_86269d13d213b67c57417b2067216e51 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -786,24 +816,24 @@
             );
         
     
-        var popup_48a8b2bdf2bf68bc6a8f1f17aa442f1d = L.popup({
+        var popup_e7d8a7dbec87595ce1d1b29a2b6e9ee7 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_5e493df8c04c8572687ba3df0ce871cf = $(`<div id="html_5e493df8c04c8572687ba3df0ce871cf" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">台北101观景台 Taipei 101 Observatory</div>   <div style="font-size:13px;line-height:1.5;color:#374151">10:00–21:00；最后入场 20:15。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     晚上｜10-02 19:00 ~ 21:30   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0335,121.5645" target="_blank">在地图中导航</a></div>   <div><a target='_blank' href='https://www.vscinemas.com.tw/' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>威秀官网</a><a target='_blank' href='https://www.vscinemas.com.tw/ShowTimes/' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>场次/订票</a></div> </div></div>`)[0];
-                popup_48a8b2bdf2bf68bc6a8f1f17aa442f1d.setContent(html_5e493df8c04c8572687ba3df0ce871cf);
+                var html_adb9efe5f59e332b738a06b14c2c7d6b = $(`<div id="html_adb9efe5f59e332b738a06b14c2c7d6b" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">台北101观景台 Taipei 101 Observatory</div>   <div style="font-size:13px;line-height:1.5;color:#374151">10:00–21:00；最后入场 20:15。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     晚上｜10-02 19:00 ~ 21:30   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0335,121.5645" target="_blank">在地图中导航</a></div>   <div><a target='_blank' href='https://www.vscinemas.com.tw/' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>威秀官网</a><a target='_blank' href='https://www.vscinemas.com.tw/ShowTimes/' style='display:inline-block;padding:6px 10px;border-radius:8px;background:#111;color:#fff;text-decoration:none;margin-right:8px;margin-top:8px'>场次/订票</a></div> </div></div>`)[0];
+                popup_e7d8a7dbec87595ce1d1b29a2b6e9ee7.setContent(html_adb9efe5f59e332b738a06b14c2c7d6b);
             
         
 
-        marker_0a919e83e495d004efa4fc3739c3551c.bindPopup(popup_48a8b2bdf2bf68bc6a8f1f17aa442f1d)
+        marker_0c1ce14d43315668d0a2a45a21e5df0b.bindPopup(popup_e7d8a7dbec87595ce1d1b29a2b6e9ee7)
         ;
 
         
     
     
-            marker_0a919e83e495d004efa4fc3739c3551c.bindTooltip(
+            marker_0c1ce14d43315668d0a2a45a21e5df0b.bindTooltip(
                 `<div>
                      台北101观景台 Taipei 101 Observatory
                  </div>`,
@@ -813,18 +843,18 @@
             );
         
     
-                marker_0a919e83e495d004efa4fc3739c3551c.setIcon(icon_ac833012b42bd58182a8076c4effb2b2);
+                marker_0c1ce14d43315668d0a2a45a21e5df0b.setIcon(icon_86269d13d213b67c57417b2067216e51);
             
     
-            var marker_33071bc9535a853a902244a56e6975c4 = L.marker(
+            var marker_114fc07300ef64e1e41b6f33b1185980 = L.marker(
                 [25.0173, 121.5397],
                 {
   "title": "\u53f0\u5927\u6821\u56ed National Taiwan University",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_a79198d0eb08c6d52e1a4c5c1a476f26 = L.AwesomeMarkers.icon(
+            var icon_4fd51ae05413707eccae8df8ac869745 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -835,24 +865,24 @@
             );
         
     
-        var popup_73850acf86f207acc30727c48a4e03a9 = L.popup({
+        var popup_536c63df02709f773ca08012dc924345 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_09ccaab50651fe118498c01820334e9a = $(`<div id="html_09ccaab50651fe118498c01820334e9a" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">台大校园 National Taiwan University</div>   <div style="font-size:13px;line-height:1.5;color:#374151">椰林大道→醉月湖→总图，校园慢行拍照。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     上午｜10-03 09:00 ~ 12:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0173,121.5397" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
-                popup_73850acf86f207acc30727c48a4e03a9.setContent(html_09ccaab50651fe118498c01820334e9a);
+                var html_b249de085cf58613999a5a02e247038e = $(`<div id="html_b249de085cf58613999a5a02e247038e" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">台大校园 National Taiwan University</div>   <div style="font-size:13px;line-height:1.5;color:#374151">椰林大道→醉月湖→总图，校园慢行拍照。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     上午｜10-03 09:00 ~ 12:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0173,121.5397" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
+                popup_536c63df02709f773ca08012dc924345.setContent(html_b249de085cf58613999a5a02e247038e);
             
         
 
-        marker_33071bc9535a853a902244a56e6975c4.bindPopup(popup_73850acf86f207acc30727c48a4e03a9)
+        marker_114fc07300ef64e1e41b6f33b1185980.bindPopup(popup_536c63df02709f773ca08012dc924345)
         ;
 
         
     
     
-            marker_33071bc9535a853a902244a56e6975c4.bindTooltip(
+            marker_114fc07300ef64e1e41b6f33b1185980.bindTooltip(
                 `<div>
                      台大校园 National Taiwan University
                  </div>`,
@@ -862,18 +892,18 @@
             );
         
     
-                marker_33071bc9535a853a902244a56e6975c4.setIcon(icon_a79198d0eb08c6d52e1a4c5c1a476f26);
+                marker_114fc07300ef64e1e41b6f33b1185980.setIcon(icon_4fd51ae05413707eccae8df8ac869745);
             
     
-            var marker_ae28881f0b6006e39e037a465a7c20ea = L.marker(
+            var marker_4f91df8acf93ed19f50e3f55fcce5462 = L.marker(
                 [25.0145, 121.5349],
                 {
   "title": "\u516c\u9986\u5546\u5708 Gongguan Shopping District",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_962a2a56e271556e976c9698b3d8302a = L.AwesomeMarkers.icon(
+            var icon_d00ab0796d92ee201b652350be3f192b = L.AwesomeMarkers.icon(
                 {
   "markerColor": "blue",
   "iconColor": "white",
@@ -884,24 +914,24 @@
             );
         
     
-        var popup_053bbe3d9571b9325f87cce2bac0dbaa = L.popup({
+        var popup_e3254801a0f6677c8b873d1145312e11 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_9bb417596406bee983c9888fc9008cea = $(`<div id="html_9bb417596406bee983c9888fc9008cea" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">公馆商圈 Gongguan Shopping District</div>   <div style="font-size:13px;line-height:1.5;color:#374151">美食店铺密集，适合午后逛街。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     下午｜10-03 13:30 ~ 17:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0145,121.5349" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
-                popup_053bbe3d9571b9325f87cce2bac0dbaa.setContent(html_9bb417596406bee983c9888fc9008cea);
+                var html_3e859b5ab31320c7205ac6c9963260b5 = $(`<div id="html_3e859b5ab31320c7205ac6c9963260b5" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">公馆商圈 Gongguan Shopping District</div>   <div style="font-size:13px;line-height:1.5;color:#374151">美食店铺密集，适合午后逛街。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     下午｜10-03 13:30 ~ 17:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0145,121.5349" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
+                popup_e3254801a0f6677c8b873d1145312e11.setContent(html_3e859b5ab31320c7205ac6c9963260b5);
             
         
 
-        marker_ae28881f0b6006e39e037a465a7c20ea.bindPopup(popup_053bbe3d9571b9325f87cce2bac0dbaa)
+        marker_4f91df8acf93ed19f50e3f55fcce5462.bindPopup(popup_e3254801a0f6677c8b873d1145312e11)
         ;
 
         
     
     
-            marker_ae28881f0b6006e39e037a465a7c20ea.bindTooltip(
+            marker_4f91df8acf93ed19f50e3f55fcce5462.bindTooltip(
                 `<div>
                      公馆商圈 Gongguan Shopping District
                  </div>`,
@@ -911,18 +941,18 @@
             );
         
     
-                marker_ae28881f0b6006e39e037a465a7c20ea.setIcon(icon_962a2a56e271556e976c9698b3d8302a);
+                marker_4f91df8acf93ed19f50e3f55fcce5462.setIcon(icon_d00ab0796d92ee201b652350be3f192b);
             
     
-            var marker_100c5e50029a0b206038429183336586 = L.marker(
+            var marker_c9271c01fd504ee3b6a91dcfd542850c = L.marker(
                 [25.0448, 121.5336],
                 {
   "title": "\u4e09\u521b\u751f\u6d3b\u56ed\u533a Syntrend Creative Park",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_6ac59e59b8140d005172487ecf029bc6 = L.AwesomeMarkers.icon(
+            var icon_6d2f9aab84cd2b82be1595757782a143 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -933,24 +963,24 @@
             );
         
     
-        var popup_5c24c9652aeebcc1f02750c5d9e3a8e6 = L.popup({
+        var popup_9b4734acf168c9c7ca3ba064544004d0 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_ae5b91a01033fa856b8b0fe97e86c729 = $(`<div id="html_ae5b91a01033fa856b8b0fe97e86c729" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">三创生活园区 Syntrend Creative Park</div>   <div style="font-size:13px;line-height:1.5;color:#374151">电玩/动漫/模型聚落；周五 11:00–22:00。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     傍晚｜10-03 17:00 ~ 19:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0448,121.5336" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
-                popup_5c24c9652aeebcc1f02750c5d9e3a8e6.setContent(html_ae5b91a01033fa856b8b0fe97e86c729);
+                var html_ed01b4f8c05b767f9e7dd0f5a57ce074 = $(`<div id="html_ed01b4f8c05b767f9e7dd0f5a57ce074" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">三创生活园区 Syntrend Creative Park</div>   <div style="font-size:13px;line-height:1.5;color:#374151">电玩/动漫/模型聚落；周五 11:00–22:00。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     傍晚｜10-03 17:00 ~ 19:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.0448,121.5336" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
+                popup_9b4734acf168c9c7ca3ba064544004d0.setContent(html_ed01b4f8c05b767f9e7dd0f5a57ce074);
             
         
 
-        marker_100c5e50029a0b206038429183336586.bindPopup(popup_5c24c9652aeebcc1f02750c5d9e3a8e6)
+        marker_c9271c01fd504ee3b6a91dcfd542850c.bindPopup(popup_9b4734acf168c9c7ca3ba064544004d0)
         ;
 
         
     
     
-            marker_100c5e50029a0b206038429183336586.bindTooltip(
+            marker_c9271c01fd504ee3b6a91dcfd542850c.bindTooltip(
                 `<div>
                      三创生活园区 Syntrend Creative Park
                  </div>`,
@@ -960,18 +990,18 @@
             );
         
     
-                marker_100c5e50029a0b206038429183336586.setIcon(icon_6ac59e59b8140d005172487ecf029bc6);
+                marker_c9271c01fd504ee3b6a91dcfd542850c.setIcon(icon_6d2f9aab84cd2b82be1595757782a143);
             
     
-            var marker_3bb198d4b9cc697955da879f39283e18 = L.marker(
+            var marker_5eece19bb94968f1da5076d7c6870342 = L.marker(
                 [25.1696, 121.4459],
                 {
   "title": "\u6de1\u6c34\u8001\u8857 Tamsui Old Street",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_bd6991df0ba3a3724806644bca5190cf = L.AwesomeMarkers.icon(
+            var icon_a52b245e9e8e6308bc76ac88cbb7c661 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "orange",
   "iconColor": "white",
@@ -982,24 +1012,24 @@
             );
         
     
-        var popup_42c5ae558ca1d0cba53ca5e08f67e5a0 = L.popup({
+        var popup_03a980fb656828824680fc3e6ea32d52 = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_34665508c577c3398402c4cdab7c31fc = $(`<div id="html_34665508c577c3398402c4cdab7c31fc" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">淡水老街 Tamsui Old Street</div>   <div style="font-size:13px;line-height:1.5;color:#374151">店家多在 10:00–22:00 区间营业。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     上午｜10-04 09:00 ~ 12:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.1696,121.4459" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
-                popup_42c5ae558ca1d0cba53ca5e08f67e5a0.setContent(html_34665508c577c3398402c4cdab7c31fc);
+                var html_7e3168a42a7fcd4c2ec2b87b8e1c9e92 = $(`<div id="html_7e3168a42a7fcd4c2ec2b87b8e1c9e92" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">淡水老街 Tamsui Old Street</div>   <div style="font-size:13px;line-height:1.5;color:#374151">店家多在 10:00–22:00 区间营业。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     上午｜10-04 09:00 ~ 12:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.1696,121.4459" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
+                popup_03a980fb656828824680fc3e6ea32d52.setContent(html_7e3168a42a7fcd4c2ec2b87b8e1c9e92);
             
         
 
-        marker_3bb198d4b9cc697955da879f39283e18.bindPopup(popup_42c5ae558ca1d0cba53ca5e08f67e5a0)
+        marker_5eece19bb94968f1da5076d7c6870342.bindPopup(popup_03a980fb656828824680fc3e6ea32d52)
         ;
 
         
     
     
-            marker_3bb198d4b9cc697955da879f39283e18.bindTooltip(
+            marker_5eece19bb94968f1da5076d7c6870342.bindTooltip(
                 `<div>
                      淡水老街 Tamsui Old Street
                  </div>`,
@@ -1009,18 +1039,18 @@
             );
         
     
-                marker_3bb198d4b9cc697955da879f39283e18.setIcon(icon_bd6991df0ba3a3724806644bca5190cf);
+                marker_5eece19bb94968f1da5076d7c6870342.setIcon(icon_a52b245e9e8e6308bc76ac88cbb7c661);
             
     
-            var marker_dd2c007a2de54a2602be0eb36e236eec = L.marker(
+            var marker_914dee53064b8974d493d4e3b84efb9f = L.marker(
                 [25.1748, 121.4324],
                 {
   "title": "\u7ea2\u6bdb\u57ce Fort San Domingo",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_01c14db843fe8e2abf27c75bf7cbbd48 = L.AwesomeMarkers.icon(
+            var icon_e1937d6b823adcb45391ff99494c59a8 = L.AwesomeMarkers.icon(
                 {
   "markerColor": "purple",
   "iconColor": "white",
@@ -1031,24 +1061,24 @@
             );
         
     
-        var popup_d85f1e7a4cb7ce1787f2e1630667af47 = L.popup({
+        var popup_7dcafd90afe75a287131a52a1f186c5e = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_748bb261cd5d63ff2d2307e1b6e59d64 = $(`<div id="html_748bb261cd5d63ff2d2307e1b6e59d64" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">红毛城 Fort San Domingo</div>   <div style="font-size:13px;line-height:1.5;color:#374151">假日 09:30–18:00；建议 60–90 分。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     下午｜10-04 13:30 ~ 17:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.1748,121.4324" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
-                popup_d85f1e7a4cb7ce1787f2e1630667af47.setContent(html_748bb261cd5d63ff2d2307e1b6e59d64);
+                var html_2c1f3a111154b662315ba07601d2e081 = $(`<div id="html_2c1f3a111154b662315ba07601d2e081" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">红毛城 Fort San Domingo</div>   <div style="font-size:13px;line-height:1.5;color:#374151">假日 09:30–18:00；建议 60–90 分。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     下午｜10-04 13:30 ~ 17:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.1748,121.4324" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
+                popup_7dcafd90afe75a287131a52a1f186c5e.setContent(html_2c1f3a111154b662315ba07601d2e081);
             
         
 
-        marker_dd2c007a2de54a2602be0eb36e236eec.bindPopup(popup_d85f1e7a4cb7ce1787f2e1630667af47)
+        marker_914dee53064b8974d493d4e3b84efb9f.bindPopup(popup_7dcafd90afe75a287131a52a1f186c5e)
         ;
 
         
     
     
-            marker_dd2c007a2de54a2602be0eb36e236eec.bindTooltip(
+            marker_914dee53064b8974d493d4e3b84efb9f.bindTooltip(
                 `<div>
                      红毛城 Fort San Domingo
                  </div>`,
@@ -1058,18 +1088,18 @@
             );
         
     
-                marker_dd2c007a2de54a2602be0eb36e236eec.setIcon(icon_01c14db843fe8e2abf27c75bf7cbbd48);
+                marker_914dee53064b8974d493d4e3b84efb9f.setIcon(icon_e1937d6b823adcb45391ff99494c59a8);
             
     
-            var marker_8696c823e68a7f1027e410a72bcc880c = L.marker(
+            var marker_587b9d5aca26db26e151ccee88580f5f = L.marker(
                 [25.18, 121.4145],
                 {
   "title": "\u6de1\u6c34\u6e14\u4eba\u7801\u5934\u60c5\u4eba\u6865 Lover\u0027s Bridge",
 }
-            ).addTo(feature_group_76f5b1a26a86c4efa49639d718d67dd7);
+            ).addTo(feature_group_40fa09e62fa922e4c549e27978b7ce5f);
         
     
-            var icon_4aee5f16f45bdcb8f8527d978dd07967 = L.AwesomeMarkers.icon(
+            var icon_d68c0aa60b706550d9c3ff7328c4959f = L.AwesomeMarkers.icon(
                 {
   "markerColor": "green",
   "iconColor": "white",
@@ -1080,24 +1110,24 @@
             );
         
     
-        var popup_83b7f9ce60e8cd9a0e6cdfa4f0ceecb9 = L.popup({
+        var popup_ae5b07ad6635967c254029a9b610fd2a = L.popup({
   "maxWidth": 360,
 });
 
         
             
-                var html_e0f7c220e8932c197e7f5cadfb99a3d8 = $(`<div id="html_e0f7c220e8932c197e7f5cadfb99a3d8" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">淡水渔人码头情人桥 Lover's Bridge</div>   <div style="font-size:13px;line-height:1.5;color:#374151">24 小时开放；日落景致与夜景都很美。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     傍晚｜10-04 17:00 ~ 19:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.18,121.4145" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
-                popup_83b7f9ce60e8cd9a0e6cdfa4f0ceecb9.setContent(html_e0f7c220e8932c197e7f5cadfb99a3d8);
+                var html_27f1a1e41d7f26c26a7f9d7745c8a1e4 = $(`<div id="html_27f1a1e41d7f26c26a7f9d7745c8a1e4" style="width: 100.0%; height: 100.0%;"><div style="width:300px">   <div style="font-weight:700;margin-bottom:6px">淡水渔人码头情人桥 Lover's Bridge</div>   <div style="font-size:13px;line-height:1.5;color:#374151">24 小时开放；日落景致与夜景都很美。</div>   <div style="margin-top:6px;font-size:13px;color:#555">     傍晚｜10-04 17:00 ~ 19:00   </div>   <div style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=25.18,121.4145" target="_blank">在地图中导航</a></div>    </div></div>`)[0];
+                popup_ae5b07ad6635967c254029a9b610fd2a.setContent(html_27f1a1e41d7f26c26a7f9d7745c8a1e4);
             
         
 
-        marker_8696c823e68a7f1027e410a72bcc880c.bindPopup(popup_83b7f9ce60e8cd9a0e6cdfa4f0ceecb9)
+        marker_587b9d5aca26db26e151ccee88580f5f.bindPopup(popup_ae5b07ad6635967c254029a9b610fd2a)
         ;
 
         
     
     
-            marker_8696c823e68a7f1027e410a72bcc880c.bindTooltip(
+            marker_587b9d5aca26db26e151ccee88580f5f.bindTooltip(
                 `<div>
                      淡水渔人码头情人桥 Lover's Bridge
                  </div>`,
@@ -1107,116 +1137,116 @@
             );
         
     
-                marker_8696c823e68a7f1027e410a72bcc880c.setIcon(icon_4aee5f16f45bdcb8f8527d978dd07967);
+                marker_587b9d5aca26db26e151ccee88580f5f.setIcon(icon_d68c0aa60b706550d9c3ff7328c4959f);
             
     
-            feature_group_76f5b1a26a86c4efa49639d718d67dd7.addTo(map_744f8a89d3ffcc97ecf3b985839286bc);
+            feature_group_40fa09e62fa922e4c549e27978b7ce5f.addTo(map_97f8df59a031cb3fea297958123436cc);
         
     
-            var feature_group_2589be5e3abc7a2a05a861772577b2ee = L.featureGroup(
+            var feature_group_b79f4553f70eaa8234339d6210c2ec58 = L.featureGroup(
                 {
 }
             );
         
     
-            var poly_line_2ce2ce3e90f2c3f57ccce2424f4b1875 = L.polyline(
+            var poly_line_123d41a56090157cb200e77b6721d0b7 = L.polyline(
                 [[25.0432, 121.5075], [25.0375, 121.499], [25.037, 121.5001], [25.0422, 121.5078], [25.056, 121.5156]],
                 {"bubblingMouseEvents": true, "color": "#2E86DE", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2E86DE", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 4}
-            ).addTo(feature_group_2589be5e3abc7a2a05a861772577b2ee);
+            ).addTo(feature_group_b79f4553f70eaa8234339d6210c2ec58);
         
     
-            feature_group_2589be5e3abc7a2a05a861772577b2ee.addTo(map_744f8a89d3ffcc97ecf3b985839286bc);
+            feature_group_b79f4553f70eaa8234339d6210c2ec58.addTo(map_97f8df59a031cb3fea297958123436cc);
         
     
-            var feature_group_ff5598f157ba68173de59cc0a06e2d85 = L.featureGroup(
+            var feature_group_c55e693d34ee5f6543e133cef218f70d = L.featureGroup(
                 {
 }
             );
         
     
-            var poly_line_c91cf1985837ec054a66fb7fd16058da = L.polyline(
+            var poly_line_31c7237174e2dc0bdb43b90f83dc4f93 = L.polyline(
                 [[25.0432, 121.5075], [25.0401, 121.5115], [25.1024, 121.5485], [25.0877, 121.525]],
                 {"bubblingMouseEvents": true, "color": "#E67E22", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#E67E22", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 4}
-            ).addTo(feature_group_ff5598f157ba68173de59cc0a06e2d85);
+            ).addTo(feature_group_c55e693d34ee5f6543e133cef218f70d);
         
     
-            feature_group_ff5598f157ba68173de59cc0a06e2d85.addTo(map_744f8a89d3ffcc97ecf3b985839286bc);
+            feature_group_c55e693d34ee5f6543e133cef218f70d.addTo(map_97f8df59a031cb3fea297958123436cc);
         
     
-            var feature_group_edb5bd6d5d44c1d6d59205741088d75e = L.featureGroup(
+            var feature_group_a0bc3084bc63439780cf65d403e96f67 = L.featureGroup(
                 {
 }
             );
         
     
-            var poly_line_916b6f08c3037e827ddf4506183f5392 = L.polyline(
+            var poly_line_31ac6cf7c12b2ba113e9e3899645dc55 = L.polyline(
                 [[25.0432, 121.5075], [25.0446, 121.56], [25.0418, 121.5574], [25.0272, 121.5707], [25.0335, 121.5645]],
                 {"bubblingMouseEvents": true, "color": "#27AE60", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#27AE60", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 4}
-            ).addTo(feature_group_edb5bd6d5d44c1d6d59205741088d75e);
+            ).addTo(feature_group_a0bc3084bc63439780cf65d403e96f67);
         
     
-            feature_group_edb5bd6d5d44c1d6d59205741088d75e.addTo(map_744f8a89d3ffcc97ecf3b985839286bc);
+            feature_group_a0bc3084bc63439780cf65d403e96f67.addTo(map_97f8df59a031cb3fea297958123436cc);
         
     
-            var feature_group_24e88b69af0e81c99d503f9e77118b0b = L.featureGroup(
+            var feature_group_d588676c9c7136d6ebf1b855e7b8a38c = L.featureGroup(
                 {
 }
             );
         
     
-            var poly_line_089fac6d914910d0a9e8fb9dfb407099 = L.polyline(
+            var poly_line_fb12be60ea1c0161404015385f15cb3a = L.polyline(
                 [[25.0432, 121.5075], [25.0173, 121.5397], [25.0145, 121.5349], [25.0448, 121.5336]],
                 {"bubblingMouseEvents": true, "color": "#C0392B", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#C0392B", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 4}
-            ).addTo(feature_group_24e88b69af0e81c99d503f9e77118b0b);
+            ).addTo(feature_group_d588676c9c7136d6ebf1b855e7b8a38c);
         
     
-            feature_group_24e88b69af0e81c99d503f9e77118b0b.addTo(map_744f8a89d3ffcc97ecf3b985839286bc);
+            feature_group_d588676c9c7136d6ebf1b855e7b8a38c.addTo(map_97f8df59a031cb3fea297958123436cc);
         
     
-            var feature_group_854172199f25f49daaac18185ad26db2 = L.featureGroup(
+            var feature_group_54d51747ce77868bed91eb8de0b88777 = L.featureGroup(
                 {
 }
             );
         
     
-            var poly_line_396d4245abefeeb791c8a93babb9761e = L.polyline(
+            var poly_line_37e92af1755d32cc735dce9bc53079e5 = L.polyline(
                 [[25.0432, 121.5075], [25.1696, 121.4459], [25.1748, 121.4324], [25.18, 121.4145]],
                 {"bubblingMouseEvents": true, "color": "#8E44AD", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#8E44AD", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.75, "smoothFactor": 1.0, "stroke": true, "weight": 4}
-            ).addTo(feature_group_854172199f25f49daaac18185ad26db2);
+            ).addTo(feature_group_54d51747ce77868bed91eb8de0b88777);
         
     
-            feature_group_854172199f25f49daaac18185ad26db2.addTo(map_744f8a89d3ffcc97ecf3b985839286bc);
+            feature_group_54d51747ce77868bed91eb8de0b88777.addTo(map_97f8df59a031cb3fea297958123436cc);
         
     
-            var layer_control_a56720889d06693eecd42938a00638ee_layers = {
+            var layer_control_5d867e151da6ec843c8090dd70f22199_layers = {
                 base_layers : {
-                    "\u6d45\u8272\u5e95\u56fe" : tile_layer_0cd3142d0e7416bc4d781fdcafe5892b,
-                    "OpenStreetMap" : tile_layer_fce79877a770de08bf4244ca376af0b1,
-                    "\u6df1\u8272\u5e95\u56fe" : tile_layer_210a36bff7d8a772faf8a2fe82d9899d,
+                    "\u6d45\u8272\u5e95\u56fe" : tile_layer_deee10f01863b360e9a3a3fd5f6f916d,
+                    "OpenStreetMap" : tile_layer_63138d2fa21a97d3b6f6a3afa19c446f,
+                    "\u6df1\u8272\u5e95\u56fe" : tile_layer_34a30085ecc04c5a8c5daaaf959505ac,
                 },
                 overlays :  {
-                    "\u5168\u90e8\u666f\u70b9\uff08\u6309\u7c7b\u578b\u4e0a\u8272\uff09" : feature_group_76f5b1a26a86c4efa49639d718d67dd7,
-                    "D1 09/30\uff08\u884c\u7a0b\uff09" : feature_group_2589be5e3abc7a2a05a861772577b2ee,
-                    "D2 10/01\uff08\u884c\u7a0b\uff09" : feature_group_ff5598f157ba68173de59cc0a06e2d85,
-                    "D3 10/02\uff08\u884c\u7a0b\uff09" : feature_group_edb5bd6d5d44c1d6d59205741088d75e,
-                    "D4 10/03\uff08\u884c\u7a0b\uff09" : feature_group_24e88b69af0e81c99d503f9e77118b0b,
-                    "D5 10/04\uff08\u884c\u7a0b\uff09" : feature_group_854172199f25f49daaac18185ad26db2,
+                    "\u5168\u90e8\u666f\u70b9\uff08\u6309\u7c7b\u578b\u4e0a\u8272\uff09" : feature_group_40fa09e62fa922e4c549e27978b7ce5f,
+                    "D1 09/30\uff08\u884c\u7a0b\uff09" : feature_group_b79f4553f70eaa8234339d6210c2ec58,
+                    "D2 10/01\uff08\u884c\u7a0b\uff09" : feature_group_c55e693d34ee5f6543e133cef218f70d,
+                    "D3 10/02\uff08\u884c\u7a0b\uff09" : feature_group_a0bc3084bc63439780cf65d403e96f67,
+                    "D4 10/03\uff08\u884c\u7a0b\uff09" : feature_group_d588676c9c7136d6ebf1b855e7b8a38c,
+                    "D5 10/04\uff08\u884c\u7a0b\uff09" : feature_group_54d51747ce77868bed91eb8de0b88777,
                 },
             };
-            let layer_control_a56720889d06693eecd42938a00638ee = L.control.layers(
-                layer_control_a56720889d06693eecd42938a00638ee_layers.base_layers,
-                layer_control_a56720889d06693eecd42938a00638ee_layers.overlays,
+            let layer_control_5d867e151da6ec843c8090dd70f22199 = L.control.layers(
+                layer_control_5d867e151da6ec843c8090dd70f22199_layers.base_layers,
+                layer_control_5d867e151da6ec843c8090dd70f22199_layers.overlays,
                 {
   "position": "topleft",
   "collapsed": false,
   "autoZIndex": true,
 }
-            ).addTo(map_744f8a89d3ffcc97ecf3b985839286bc);
+            ).addTo(map_97f8df59a031cb3fea297958123436cc);
 
         
     
-var mapObj = map_744f8a89d3ffcc97ecf3b985839286bc;
-var markerDefs = [{var:'marker_61e152f4ec802add15c87b11a5cf9f9e', name:`在家行旅 西门馆`}, {var:'marker_fd1b2e2cc592c4706cfa3502fa7e23e5', name:`龙山寺 Longshan Temple`}, {var:'marker_e35fc104ec9589164a943ff7fda5839f', name:`剥皮寮历史街区 Bopiliao`}, {var:'marker_d9a92c7d29452e72fb85aa1572a438a6', name:`西门红楼 Red House`}, {var:'marker_d09187cdad4b169605cce7cb6a0d4051', name:`宁夏夜市 Ningxia Night Market`}, {var:'marker_34ac36beb50a2267b0d4a89c96ecad5e', name:`总统府（入内参观） Presidential Office Building`}, {var:'marker_49d4f228acdb3c8b34ef71cccfe9cfc0', name:`国立故宫博物院 National Palace Museum`}, {var:'marker_e01a86001dcedbd628d9a273660d47b8', name:`士林夜市 Shilin Night Market`}, {var:'marker_02ef9758b86f751c2b26bc9bf22353f3', name:`松山文创园区 Songshan Cultural & Creative Park`}, {var:'marker_93731fb8cc77c0d3756de11e93f2c753', name:`国父纪念馆 Sun Yat-sen Memorial Hall (park)`}, {var:'marker_739bb6689b20c853d8e578c0f20d3bbe', name:`象山步道 Elephant Mountain Trailhead`}, {var:'marker_0a919e83e495d004efa4fc3739c3551c', name:`台北101观景台 Taipei 101 Observatory`}, {var:'marker_33071bc9535a853a902244a56e6975c4', name:`台大校园 National Taiwan University`}, {var:'marker_ae28881f0b6006e39e037a465a7c20ea', name:`公馆商圈 Gongguan Shopping District`}, {var:'marker_100c5e50029a0b206038429183336586', name:`三创生活园区 Syntrend Creative Park`}, {var:'marker_3bb198d4b9cc697955da879f39283e18', name:`淡水老街 Tamsui Old Street`}, {var:'marker_dd2c007a2de54a2602be0eb36e236eec', name:`红毛城 Fort San Domingo`}, {var:'marker_8696c823e68a7f1027e410a72bcc880c', name:`淡水渔人码头情人桥 Lover's Bridge`}]; // {var,name}
+var mapObj = map_97f8df59a031cb3fea297958123436cc;
+var markerDefs = [{var:'marker_a9ad6804e87cd0eb75f88856539835e7', name:`在家行旅 西门馆`}, {var:'marker_ec430cd458e9d9644be92fe92a381a93', name:`龙山寺 Longshan Temple`}, {var:'marker_0db7ffea4bbb8803d55424c1fc477aa3', name:`剥皮寮历史街区 Bopiliao`}, {var:'marker_79e9d0b0e9e1e47dad7e8a404e82ddea', name:`西门红楼 Red House`}, {var:'marker_32bf656b739d0d75a01313c82079121f', name:`宁夏夜市 Ningxia Night Market`}, {var:'marker_3b5508edc2f27ca0bbe01590d64a7a74', name:`总统府（入内参观） Presidential Office Building`}, {var:'marker_3edbc81b3a6c6d6b51693e1743b8af9b', name:`国立故宫博物院 National Palace Museum`}, {var:'marker_fc696f8be992419ce7c1a1b8cc398f48', name:`士林夜市 Shilin Night Market`}, {var:'marker_ace3006b5650c026b967559144ac5005', name:`松山文创园区 Songshan Cultural & Creative Park`}, {var:'marker_c0eed484e66cb3fddca4ac166c8346c9', name:`国父纪念馆 Sun Yat-sen Memorial Hall (park)`}, {var:'marker_81bd10fbc99e7605f986eb1b9073dbb7', name:`象山步道 Elephant Mountain Trailhead`}, {var:'marker_0c1ce14d43315668d0a2a45a21e5df0b', name:`台北101观景台 Taipei 101 Observatory`}, {var:'marker_114fc07300ef64e1e41b6f33b1185980', name:`台大校园 National Taiwan University`}, {var:'marker_4f91df8acf93ed19f50e3f55fcce5462', name:`公馆商圈 Gongguan Shopping District`}, {var:'marker_c9271c01fd504ee3b6a91dcfd542850c', name:`三创生活园区 Syntrend Creative Park`}, {var:'marker_5eece19bb94968f1da5076d7c6870342', name:`淡水老街 Tamsui Old Street`}, {var:'marker_914dee53064b8974d493d4e3b84efb9f', name:`红毛城 Fort San Domingo`}, {var:'marker_587b9d5aca26db26e151ccee88580f5f', name:`淡水渔人码头情人桥 Lover's Bridge`}]; // {var,name}
 function allMarkers(){ return markerDefs.map(function(d){ return { mk: eval(d.var), name: d.name }; }); }
 function filterItems(q){
   q=(q||'').trim().toLowerCase(); if(!q) return [];
@@ -1307,6 +1337,107 @@ function openMarker(mk){ mapObj.setView(mk.getLatLng(),14); mk.openPopup(); }
   if (target && 'MutationObserver' in window) {
     new MutationObserver(relocateLegend).observe(target, {childList:true, subtree:true, attributes:true});
   }
+})();
+    
+(function(){
+  // === 配置 ===
+  var FIREBASE_CFG = {"apiKey": "AIzaSyCInERNDoamr6aikIl8wmIbufPftBST76c", "authDomain": "tptravel-cb972.firebaseapp.com", "projectId": "tptravel-cb972", "appId": "1:967044062855:web:82ff42bd22da6c2a666222"};
+  var TRIP_ID = "taipei-2025-09-30--10-04";
+  var NAMES = ["三创生活园区 Syntrend Creative Park", "公馆商圈 Gongguan Shopping District", "剥皮寮历史街区 Bopiliao", "台北101观景台 Taipei 101 Observatory", "台大校园 National Taiwan University", "国父纪念馆 Sun Yat-sen Memorial Hall (park)", "国立故宫博物院 National Palace Museum", "士林夜市 Shilin Night Market", "宁夏夜市 Ningxia Night Market", "总统府（入内参观） Presidential Office Building", "松山文创园区 Songshan Cultural & Creative Park", "淡水渔人码头情人桥 Lover's Bridge", "淡水老街 Tamsui Old Street", "红毛城 Fort San Domingo", "西门红楼 Red House", "象山步道 Elephant Mountain Trailhead", "龙山寺 Longshan Temple"];
+
+  // === 依赖（Firebase compat 版本） ===
+  function inject(src){ return new Promise(function(res,rej){ var s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=rej; document.head.appendChild(s); }); }
+  var libs = [
+    "https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js",
+    "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js",
+    "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"
+  ];
+
+  var state = { places:{}, ready:false };
+  function _qs(sel, root){ return (root||document).querySelector(sel); }
+  function confettiBurst(){ try{ confetti({ particleCount:120, spread:70, origin:{ y:0.7 } }); }catch(e){} }
+  function setBadge(msg, cls){ var el=_qs("#ck-status"); if(!el) return; el.textContent=msg; el.className="ck-badge"+(cls?(" "+cls):""); }
+
+  function percent(){
+    var done = NAMES.filter(function(n){ return !!state.places[n]; }).length;
+    return { done:done, total:NAMES.length, pct: Math.round(done*100/NAMES.length) };
+  }
+  function renderProgress(){
+    var p = percent(), bar=_qs("#ck-bar"); if(!bar) return;
+    bar.style.width = p.pct+"%"; bar.textContent = p.pct+"%"; bar.title = p.done+" / "+p.total;
+  }
+  function markButton(name){
+    var btns = document.querySelectorAll("[data-ck-name='"+CSS.escape(name)+"']");
+    var v = !!state.places[name];
+    btns.forEach(function(b){ b.classList.toggle('done', v); b.textContent = v ? "已打卡✓" : "打卡✓"; });
+  }
+  function markAllButtons(){ NAMES.forEach(markButton); }
+
+  // 把“打卡✓”按钮塞进每个弹窗
+  function enhancePopups(){
+    var pane = document.querySelector('.leaflet-pane.leaflet-popup-pane');
+    var injectOnce = function(){
+      var pops = document.querySelectorAll('.leaflet-popup-content');
+      pops.forEach(function(el){
+        var name = NAMES.find(function(n){ return el.textContent.indexOf(n) >= 0; });
+        if(!name) return; if(el.querySelector("[data-ck-name]")) return;
+        var wrap = document.createElement('div'); wrap.style.marginTop='8px';
+        var btn = document.createElement('button'); btn.className='ck-btn'; btn.dataset.ckName=name; btn.textContent='打卡✓';
+        btn.addEventListener('click', function(){ togglePlace(name); });
+        wrap.appendChild(btn); el.appendChild(wrap); markButton(name);
+      });
+    };
+    if(pane && 'MutationObserver' in window){ new MutationObserver(function(){ injectOnce(); }).observe(pane, { childList:true, subtree:true }); }
+    injectOnce();
+  }
+
+  // === Firestore 读写 ===
+  var app, db, auth, docRef, unsub = null;
+  async function initFirebase(){
+    for (var i=0;i<libs.length;i++) await inject(libs[i]);
+    app = firebase.initializeApp(FIREBASE_CFG);
+    db = firebase.firestore();
+    auth = firebase.auth();
+    try{ await db.enablePersistence(); }catch(e){}
+    await auth.signInAnonymously();
+
+    docRef = db.collection("trips").doc(TRIP_ID);
+
+    unsub = docRef.onSnapshot({ includeMetadataChanges:true }, function(snap){
+      if (snap.exists){ state.places = snap.data().places || {}; } else { state.places = {}; }
+      renderProgress(); markAllButtons();
+      var fromCache = snap.metadata.fromCache; setBadge(fromCache?"离线缓存":"已同步", fromCache?"warn":"ok");
+      state.ready = true;
+    }, function(err){ console.error(err); setBadge("连接失败", ""); });
+  }
+
+  async function togglePlace(name){
+    if(!docRef) return;
+    try{
+      await db.runTransaction(async function(tx){
+        var s = await tx.get(docRef);
+        var base = s.exists ? (s.data() || {}) : {};
+        var places = base.places || {};
+        places[name] = !places[name];
+        tx.set(docRef, { places: places, updated_at: Date.now() }, { merge:true });
+      });
+      confettiBurst();
+    }catch(e){ console.error(e); setBadge("写入失败", ""); }
+  }
+
+  async function resetAll(){
+    if(!confirm("确定要重置全部打卡吗？")) return;
+    var empty = {}; NAMES.forEach(function(n){ empty[n] = false; });
+    try{ await docRef.set({ places: empty, updated_at: Date.now() }, { merge:true }); }catch(e){ console.error(e); }
+  }
+
+  function wireUI(){ var btn = document.getElementById('ck-reset'); if(btn) btn.addEventListener('click', resetAll); }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setBadge("连接中…", "");
+    wireUI(); enhancePopups(); renderProgress();
+    initFirebase();
+  });
 })();
 </script>
 </html>
